@@ -5,9 +5,15 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Name</th>
-          <th scope="col">Monthly step count</th>
-          <th scope="col">Weekly step count</th>
-          <th scope="col">Daily avg</th>
+          <th scope="col"> 
+            <button class="btn btn-primary" aria-pressed="true" v-on:click="sortBySelector('monthly')">Monthly step count</button>
+          </th>
+          <th scope="col"> 
+            <button class="btn btn-primary" aria-pressed="true" v-on:click="sortBySelector('weekly')">Weekly step count</button>
+          </th>
+          <th scope="col"> 
+            <button class="btn btn-primary" aria-pressed="true" v-on:click="sortBySelector('daily')">Daily avg</button>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +30,11 @@ export default {
   name: 'UserList',
   components: {
     UserRank
+  },
+  methods: {
+    sortBySelector(selector){
+      this.$parent.sortBySelector(selector);
+    }
   },
   props: {
     users: Array

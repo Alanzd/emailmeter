@@ -1,7 +1,7 @@
 <template>
     <tr>
       <th scope="row">{{ index }}</th>
-      <td @click="openWorkout">{{ user.username }}</td>
+      <td>{{ user.username }}</td>
       <td>{{ user.monthlySteps }}</td>
       <td>{{ user.weeklySteps }}</td>
       <td>{{ user.dailyAvg }}</td>
