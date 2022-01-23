@@ -1,18 +1,22 @@
 <template>
-  <div class="user-list">
-    <table class="table">
+  <div class="user-list table-responsive">
+    <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col"> 
-            <button class="btn btn-primary" aria-pressed="true" v-on:click="sortBySelector('monthly')">Monthly step count</button>
+          <th scope="col" class="text-start">Name</th>
+          <th scope="col" data-toggle="tooltip" data-placement="top" title="Sort by monthly steps"> 
+            <button class="btn btn-block" 
+                    v-on:click="sortBySelector('monthly')" 
+                    :class="{ 'btn-outline-success': selector != 'monthly', 'btn-success': selector == 'monthly' }">Monthly steps
+            </button>
           </th>
-          <th scope="col"> 
-            <button class="btn btn-primary" aria-pressed="true" v-on:click="sortBySelector('weekly')">Weekly step count</button>
+          <th scope="col" data-toggle="tooltip" data-placement="top" title="Sort by weekly steps"> 
+            <button class="btn btn-block" 
+            v-on:click="sortBySelector('weekly')" 
+            :class="{ 'btn-outline-success': selector != 'weekly', 'btn-success': selector == 'weekly' }">Weekly steps</button>
           </th>
-          <th scope="col"> 
-            <button class="btn btn-primary" aria-pressed="true" v-on:click="sortBySelector('daily')">Daily avg</button>
+          <th scope="col" data-toggle="tooltip" data-placement="top" title="Sort by daily average"> 
+            <button class="btn btn-block" v-on:click="sortBySelector('daily')" :class="{ 'btn-outline-success': selector != 'daily', 'btn-success': selector == 'daily' }">Daily avg</button>
           </th>
         </tr>
       </thead>
@@ -24,15 +28,22 @@
 </template>
 
 <script>
+
 import UserRank from './UserRank.vue'
 
 export default {
   name: 'UserList',
+  data() {
+   return {
+    selector: ""
+  }
+  },
   components: {
     UserRank
   },
   methods: {
     sortBySelector(selector){
+      this.selector = selector;
       this.$parent.sortBySelector(selector);
     }
   },

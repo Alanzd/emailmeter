@@ -1,7 +1,6 @@
 <template>
     <tr>
-      <th scope="row">{{ index }}</th>
-      <td>{{ user.username }}</td>
+      <td class="text-start">{{ user.username }}</td>
       <td>{{ user.monthlySteps }}</td>
       <td>{{ user.weeklySteps }}</td>
       <td>{{ user.dailyAvg }}</td>
@@ -12,7 +11,7 @@
 export default {
   name: 'UserRank',
   props: {
-    index: Number,
+    // index: Number,
     user: Object,
   }
 }
