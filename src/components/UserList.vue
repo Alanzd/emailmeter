@@ -1,5 +1,6 @@
 <template>
-  <div class="user-list table-responsive">
+  <div class="user-list">
+  <UserDetails/>
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
@@ -30,6 +31,7 @@
 <script>
 
 import UserRank from './UserRank.vue'
+import UserDetails from './UserDetails.vue'
 
 export default {
   name: 'UserList',
@@ -39,7 +41,8 @@ export default {
   }
   },
   components: {
-    UserRank
+    UserRank,
+    UserDetails
   },
   methods: {
     sortBySelector(selector){
